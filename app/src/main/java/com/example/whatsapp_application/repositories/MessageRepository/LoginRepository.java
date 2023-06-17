@@ -36,4 +36,7 @@ public class LoginRepository {
         }).start();
     }
 
+    public void ClearLoginDetails() {
+        loginDetailsDao.clear();
+    }
 }

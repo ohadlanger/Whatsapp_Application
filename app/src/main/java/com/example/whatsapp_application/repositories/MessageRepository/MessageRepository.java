@@ -31,4 +31,8 @@ public class MessageRepository {
         messageData.setValue(messageDao.getAllMessages(chatId));
         messageApi.getAllMessages(chatId, token, messageData);
     }
+
+    public void ClearMessages() {
+        messageDao.clearALL();
+    }
 }

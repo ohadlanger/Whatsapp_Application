@@ -41,4 +41,8 @@ public class ChatRepository {
         chatApi.deleteChat(chatId, token);
     }
 
+    public void ClearChats() {
+        chatDao.clear();
+    }
+
 }

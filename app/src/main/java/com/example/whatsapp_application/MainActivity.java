@@ -5,10 +5,10 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.MutableLiveData;
 
-import com.example.whatsapp_application.entities.Chat;
 import com.example.whatsapp_application.entities.Message;
+import com.example.whatsapp_application.entities.User;
 import com.example.whatsapp_application.repositories.MessageRepository.LoginRepository;
-import com.example.whatsapp_application.repositories.MessageRepository.MessageRepository;
+import com.example.whatsapp_application.repositories.MessageRepository.UserRepository;
 
 import java.util.List;
 
@@ -22,16 +22,18 @@ public class MainActivity extends AppCompatActivity {
         MutableLiveData<List<Message>> messages = new MutableLiveData<>();
         LoginRepository loginRepository = new LoginRepository(this);
         loginRepository.createToken("string", "string", token);
+        MutableLiveData<User> user = new MutableLiveData<>();
         token.observe(this, s -> {
-            MutableLiveData<List<Chat>> chats = new MutableLiveData<>();
-            MessageRepository messageRepository = new MessageRepository(this);
-            messageRepository.getAllMessages(3, "Bearer " + s, messages);
+            UserRepository UserRepository = new UserRepository();
+            UserRepository.getUser("string", "Bearer " + s, user);
+
         });
         messages.observe(this, messages1 -> {
             System.out.println(messages1);
         });
-
-
+        user.observe(this, user1 -> {
+            System.out.println(user1);
+        });
 
 //        ChatDatabase db = ChatDatabase.getInstance(this);
 //        ChatDao chatDao = db.chatDao();
