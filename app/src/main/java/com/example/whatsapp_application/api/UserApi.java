@@ -2,6 +2,7 @@ package com.example.whatsapp_application.api;
 
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.whatsapp_application.entities.DetailedUser;
 import com.example.whatsapp_application.entities.User;
 
 import retrofit2.Call;
@@ -37,12 +38,12 @@ public class UserApi {
         });
     }
 
-    public void createUser(User user, MutableLiveData<Integer> status) {
-        Call<User> call = webServiceAPI.createUser(user);
-        call.enqueue(new retrofit2.Callback<User>() {
+    public void createUser(DetailedUser user, MutableLiveData<Integer> status) {
+        Call<Void> call = webServiceAPI.createUser(user);
+        call.enqueue(new retrofit2.Callback<Void>() {
             @Override
-            public void onResponse(Call<User> call, retrofit2.Response<User> response) {
-                if(response.isSuccessful() && response.body() != null){
+            public void onResponse(Call<Void> call, retrofit2.Response<Void> response) {
+                if(response.isSuccessful()){
                     status.postValue(1);
                 }
                 else{
@@ -51,7 +52,7 @@ public class UserApi {
             }
 
             @Override
-            public void onFailure(Call<User> call, Throwable t) {
+            public void onFailure(Call<Void> call, Throwable t) {
                 status.postValue(0);
             }
         });

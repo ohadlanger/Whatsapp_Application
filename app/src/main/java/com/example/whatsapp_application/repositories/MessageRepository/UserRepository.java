@@ -3,6 +3,7 @@ package com.example.whatsapp_application.repositories.MessageRepository;
 import androidx.lifecycle.MutableLiveData;
 
 import com.example.whatsapp_application.api.UserApi;
+import com.example.whatsapp_application.entities.DetailedUser;
 import com.example.whatsapp_application.entities.User;
 
 public class UserRepository {
@@ -16,7 +17,7 @@ public class UserRepository {
         userApi.getUser(username, token, user);
     }
 
-    public void createUser(User user, MutableLiveData<Integer> status) {
+    public void createUser(DetailedUser user, MutableLiveData<Integer> status) {
         userApi.createUser(user, status);
     }
 }

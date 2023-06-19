@@ -4,6 +4,7 @@ import com.example.whatsapp_application.entities.Chat;
 import com.example.whatsapp_application.entities.ChatRequest;
 import com.example.whatsapp_application.entities.CompressChat;
 import com.example.whatsapp_application.entities.DetailedChat;
+import com.example.whatsapp_application.entities.DetailedUser;
 import com.example.whatsapp_application.entities.Message;
 import com.example.whatsapp_application.entities.TokenRequest;
 import com.example.whatsapp_application.entities.User;
@@ -44,5 +45,5 @@ public interface WebServiceApi {
     Call<User> getUser(@Path("username") String username, @Header("Authorization") String token);
 
     @POST("api/Users")
-    Call<User> createUser(@Body User user);
+    Call<Void> createUser(@Body DetailedUser user);
 }
