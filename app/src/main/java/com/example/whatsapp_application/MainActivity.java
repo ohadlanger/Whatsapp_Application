@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
             token.observe(this, new Observer<String>() {
                 @Override
                 public void onChanged(String newValue) {
-                    userRepository.getUser(username, newValue, user);
+                    userRepository.getUser(username, "Bearer " + newValue, user);
                 }
             });
 

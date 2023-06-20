@@ -115,13 +115,20 @@
             android:backgroundTint="#985bb6"
             android:textColor="#FFFFFF"/>
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
             app:layout_constraintTop_toBottomOf="@+id/archiveBtn">
 
-        </androidx.recyclerview.widget.RecyclerView>
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/archiveBtn"
+                android:orientation="vertical">
+
+            </androidx.recyclerview.widget.RecyclerView>
+        </ScrollView>
 
 
 
